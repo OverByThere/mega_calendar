@@ -12,7 +12,22 @@ Redmine::Plugin.register :mega_calendar do
   requires_redmine :version_or_higher => '3.0.1'
   menu(:top_menu, :calendar, { :controller => 'calendar', :action => 'index' }, :caption => :calendar, :if => Proc.new {(!Setting.plugin_mega_calendar['allowed_users'].blank? && Setting.plugin_mega_calendar['allowed_users'].include?(User.current.id.to_s) ? true : false)})
   menu(:top_menu, :holidays, { :controller => 'holidays', :action => 'index' }, :caption => :holidays, :if => Proc.new {(!Setting.plugin_mega_calendar['allowed_users'].blank? && Setting.plugin_mega_calendar['allowed_users'].include?(User.current.id.to_s) ? true : false)})
-  Rails.configuration.to_prepare do 
+  menu(:top_menu, :board, { :controller => 'agile_boards', :action => 'index', :project_id => nil}, :caption => "Agile Board")
+  menu(:top_menu, :issue, { :controller => 'issues', :action => 'new', :project_id => nil, :id => nil, :'issue[project_id]' => '3', 'issue[tracker_id]' => '3', :'issue[start_date]' => '', :'issue[description]' => 'Device:
+
+
+URL (if applicable):
+
+
+What happened:
+
+
+What you expected to happen:
+
+
+'}, :caption => "New Issue")
+menu(:top_menu, :knowledgebase,  { :controller => 'wiki', :action => 'show', :project_id => 'dans-tasklist'}, :caption => "Knowledgebase")
+  Rails.configuration.to_prepare do
     IssuesController.send(:include, IssuesControllerPatch)
     UsersController.send(:include, UsersControllerPatch)
   end
