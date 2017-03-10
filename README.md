@@ -47,7 +47,17 @@ Please make sure that you set your users, that will be allowed to use this plugi
 
 A quick overview about this plugin, you'll get on <a href="http://mega-calendar.devbert.de/">http://mega-calendar.devbert.de/</a>
 
+<h2>Newsletter</h2>
+
+If you want to stay up to date, you can subscribe to the MegaCalendar newsletter <a href="https://devbert.us15.list-manage.com/subscribe?u=ce1f4237d49c936e451ef9e82&id=7fa4fd4275">here</a>.
+
 <h2>History</h2>
+
+1.6.0: Added possibilty to show issues with empty dates. Added possibility to save/edit and delete filters within the calendar. Added possibilty to create global holidays.<br> Please make sure that you migrate your database.<br>
+<code>cd /srv/redmine</code><br>
+<code>bundle exec rake redmine:plugins:migrate RAILS_ENV=production</code>
+
+1.5.0: Added filters. Added functionality to include users to the calendar within the plugin settings. Mobile optimization 
 
 1.4.0: Added export functionality (ics) - Please make sure, that you have installed the gems -> <a href="https://github.com/berti92/mega_calendar/wiki/Installation">WIKI</a>
 
